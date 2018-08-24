@@ -1,9 +1,9 @@
 float x = 0, y = 0;
-final int INTERACTIONS = 0;
+final int INTERACTIONS = 300;
 
 void setup() {
-  size(900, 900); 
-  background(0);
+  size(640, 640); 
+  background(51);
 }
 
 void draw() {
@@ -14,8 +14,8 @@ void draw() {
 }
 
 void drawPoint() {
-  stroke(0, 255, 0);
-  strokeWeight(2);
+  stroke(random(180), random(255), random(100));
+  strokeWeight(1);
   float px = map(x, -2.1820, 2.6558, 0, width);
   float py = map(y, 0, 9.9983, height, 0);
   point(px, py);
