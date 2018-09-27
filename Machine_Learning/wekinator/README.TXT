@@ -1,4 +1,4 @@
-WEKINATOR : Version 2.1.0.4
+WEKINATOR KADENZE DISTRIBUTION : Version 2.1.0.4
 
 www.wekinator.org
 
