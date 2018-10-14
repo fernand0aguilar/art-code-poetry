@@ -17,6 +17,10 @@ class Curve {
   void addPoint() {
     path.add(current);
   }
+  
+  void reset(){
+   path.clear(); 
+  }
 
   void show() {
     stroke(0, 255, 0);

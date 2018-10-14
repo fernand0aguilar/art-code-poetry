@@ -2,14 +2,14 @@ float angle = - HALF_PI;
 int cols = 0;
 int rows = 0;
 
-int w = 80;
+int w = 60;
 float d = w - 10;
 float r = d/2;
 
 Curve[][] curves;
 
 void setup() {
-  size(800, 800);
+  fullScreen(P2D);
   cols = width / w - 1;
   rows = height / w - 1;
   curves = new Curve[rows][cols];
@@ -26,14 +26,23 @@ void draw() {
 
   drawCircles(cols, "cols");
   drawCircles(rows, "rows");
-  angle += 0.01;
+  angle -= 0.01;
 
   for (int i = 0; i < cols; i++) {
     for (int j = 0; j < rows; j++) {
       curves[j][i].addPoint();
       curves[j][i].show ();
-
     }
+  }
+  
+  if(angle < -TWO_PI){
+   for ( int j = 0; j < rows; j ++){
+      for(int i = 0; i < cols; i++){
+        curves[j][i].reset();
+      }
+   }
+   saveFrame("lissajous###.png");
+   angle = 0;
   }
 }
 
