@@ -9,7 +9,7 @@ float r = d/2;
 Curve[][] curves;
 
 void setup() {
-  fullScreen(P2D);
+  size(900, 600);
   cols = width / w - 1;
   rows = height / w - 1;
   curves = new Curve[rows][cols];
@@ -26,7 +26,7 @@ void draw() {
 
   drawCircles(cols, "cols");
   drawCircles(rows, "rows");
-  angle -= 0.01;
+  angle += 0.03;
 
   for (int i = 0; i < cols; i++) {
     for (int j = 0; j < rows; j++) {
@@ -35,14 +35,14 @@ void draw() {
     }
   }
   
-  if(angle < -TWO_PI){
+  if(angle > TWO_PI - HALF_PI){
    for ( int j = 0; j < rows; j ++){
       for(int i = 0; i < cols; i++){
         curves[j][i].reset();
       }
    }
-   saveFrame("lissajous###.png");
-   angle = 0;
+   //saveFrame("lissajous###.png");
+   angle = -HALF_PI;
   }
 }
 
@@ -53,7 +53,7 @@ void drawCircles(int quantity, String type) {
     float x = r * cos(angle * (i+1));
     float y = r * sin(angle * (i+1));
 
-    stroke(255, 50);
+    stroke(252, 60);
     strokeWeight(1);
     if (type == "rows") {
       centerX = w/2;

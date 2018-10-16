@@ -16,6 +16,7 @@ class Curve {
 
   void addPoint() {
     path.add(current);
+    current = new PVector();
   }
   
   void reset(){
